@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Image Generator</title>
+</head>
+<body>
+    <script>
+        var img = document.querySelector("#cat")
+        function getcat(){
+            fetch("https://api.thecatapi.com/v1/images/search")
+            .then(response => response.json())
+             .then(data => {
+                cat.src=data[0].url;
+            })
+        }
+    </script>
+    <center>
+    <button onclick="getcat()">Le Cat</button>
+    <img id="cat" height="500px">
+    </center>
+    <style>
+    button {
+        margin:50px;
+        font-size:30px;
+        border:2.5px solid rgb(67, 6, 158);
+        border-radius: 5px;
+    }
+    #cat {
+        position: absolute;
+        top:120px;
+    }
+    center {
+        display: flex;
+        justify-content: center;
+    }
+    body {
+        background:url(https://accordionfish.github.io/zipchat/baguette_bg.png);
+        background-repeat: repeat;
+        background-size:150px;
+        animation: marquee 10s infinite linear;
+    }
+    @keyframes marquee {
+        0% {
+            background-position: 1% 0;
+        }
+        100% {
+            background-position: 50% 0;
+        }
+    }
+    </style>
+</body>
+</html>
